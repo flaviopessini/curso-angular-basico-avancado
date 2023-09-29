@@ -28,6 +28,8 @@ export class AppComponent
     AfterViewChecked
 {
   title = 'curso-angular-basico-avancado';
+  addValue: number = 99;
+  getDados: { nome: string; idade: number } | undefined;
 
   constructor() {}
 
@@ -94,5 +96,13 @@ export class AppComponent
      * foi verificada pelo algoritmo de detecção de alterações do Angular.
      */
     console.log('ngAfterViewChecked');
+  }
+
+  add(): void {
+    this.addValue += 1;
+  }
+
+  setDados(event: { nome: string; idade: number }): void {
+    this.getDados = event;
   }
 }
