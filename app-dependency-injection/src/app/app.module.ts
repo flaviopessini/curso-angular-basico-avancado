@@ -13,7 +13,13 @@ import { DiretivasAtributosComponent } from './diretivas-atributos/diretivas-atr
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, TopbarComponent, DatabindingComponent, DiretivasEstruturaisComponent, DiretivasAtributosComponent],
+  declarations: [
+    AppComponent,
+    TopbarComponent,
+    DatabindingComponent,
+    DiretivasEstruturaisComponent,
+    DiretivasAtributosComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class FoodServiceService {
+export class FoodListService {
   private list: Array<string> = [
     'X-bacon',
     'X-salada',
@@ -16,5 +16,9 @@ export class FoodServiceService {
 
   getList(): string[] {
     return this.list;
+  }
+
+  foodListAdd(value: string): number {
+    return this.list.push(value);
   }
 }
