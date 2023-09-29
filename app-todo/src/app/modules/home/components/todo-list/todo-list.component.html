@@ -1,14 +1,24 @@
-<section>
-  <ul>
-    <li>
-      <input type="checkbox" />
-      <input type="text" />
-      <button>
-        <img src="assets/icons/icons8-lixo-64.svg" alt="" height="16">
+<section [ngClass]="{ loading: taskList.length == 0 }">
+  <ul *ngIf="taskList.length > 0">
+    <li *ngFor="let item of taskList; let i = index">
+      <input type="checkbox" [(ngModel)]="item.checked" />
+      <input
+        type="text"
+        [(ngModel)]="item.task"
+        [ngClass]="{ checked: item.checked }"
+        (keyup)="validationInput(item.task, i)"
+      />
+      <button (click)="deleteItemTaskList(i)">
+        <img src="assets/icons/icons8-lixo-64.svg" alt="" height="16" />
       </button>
     </li>
   </ul>
 </section>
 
-<app-todo-input-add-itens></app-todo-input-add-itens>
-<app-todo-button-delete-all></app-todo-button-delete-all>
+<app-todo-input-add-itens
+  (emitItemTaskList)="setEmitTaskList($event)"
+></app-todo-input-add-itens>
+<app-todo-button-delete-all
+  *ngIf="taskList.length > 0"
+  (click)="deleteAllTask()"
+></app-todo-button-delete-all>
