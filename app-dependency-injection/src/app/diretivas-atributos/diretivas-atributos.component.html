@@ -1,0 +1,28 @@
+<ng-content select="h1"></ng-content>
+
+<h1>Diretivas de Atributo</h1>
+<hr />
+
+<p [ngClass]="{ active: valor, disabled: !valor }">NgClass</p>
+
+<hr />
+
+<p [ngStyle]="{ height: altura, 'background-color': backColor }">NgStyle</p>
+
+<hr />
+
+<input type="text" [(ngModel)]="nome" /><span>{{ nome }}</span>
+<br />
+<button (click)="adicionarNome()">Adicionar</button>
+
+<ul>
+  <li *ngFor="let item of lista">{{ item.nome }}</li>
+</ul>
+
+<hr />
+
+<ng-template ngFor let-item [ngForOf]="lista">
+  <p>{{ item.nome }}</p>
+</ng-template>
+
+<ng-content select="h3"></ng-content>
