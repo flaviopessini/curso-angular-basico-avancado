@@ -1,0 +1,44 @@
+<h1>databinding works!</h1>
+<hr />
+
+<h2>Interpolation</h2>
+<p>{{ nome }} tem {{ idade }} anos de idade.</p>
+<p>No próximo ano, {{ nome }} terá {{ idade + 1 }} anos de idade.</p>
+
+<br />
+<br />
+
+<h2>Property Binding</h2>
+<button (click)="desabilitado = !desabilitado">Alternar</button>
+<button [disabled]="desabilitado">Botão</button>
+<img [src]="urlImagem" [title]="urlAlt" [alt]="urlAlt" />
+
+<br />
+<br />
+
+<h2>Event</h2>
+<button (click)="cliquei()">Clique</button>
+<button (click)="cliquei('Cliquei no segundo botão')">Clique 2</button>
+<br />
+<div
+  style="background-color: red; width: 200px; height: 200px"
+  (mousemove)="mouseMoveTest($event)"
+>
+  <span
+    style="
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    "
+    >{{ mousePosition.x }} x {{ mousePosition.y }}</span
+  >
+</div>
+
+<br />
+<br />
+
+<h2>Two-way bindings</h2>
+<input type="text" [(ngModel)]="inputNome" />
+<span>{{ inputNome }}</span>
