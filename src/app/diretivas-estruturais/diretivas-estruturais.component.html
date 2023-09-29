@@ -1,0 +1,41 @@
+<h1>Diretivas Estruturais</h1>
+<hr />
+
+<p *ngIf="condition; else elseBlock">True</p>
+<ng-template #elseBlock>
+  <p>False</p>
+</ng-template>
+
+<hr />
+
+<p *ngIf="conditionClick">True</p>
+
+<p *ngIf="!conditionClick">False</p>
+
+<button (click)="onClick()">Clicar</button>
+
+<hr />
+
+<ul>
+  <li *ngFor="let item of lista">{{ item.nome }}</li>
+</ul>
+<br />
+<button (click)="onClickAdd()">Adicionar</button>
+<ul>
+  <li
+    *ngFor="let item of listaVendas; let i = index"
+    (click)="onClickEventList(i)"
+  >
+    [{{ i }}] - Produto: {{ item.prod }} - Valor: {{ item.valor }}
+  </li>
+</ul>
+
+<hr />
+
+<div [ngSwitch]="status">
+  <button (click)="onClickAlterarStatus()">Alterar</button>
+  <input type="text" [(ngModel)]="status" />
+  <p *ngSwitchCase="'Aberto'">Aberto</p>
+  <p *ngSwitchCase="'Concluído'">Concluído</p>
+  <p *ngSwitchDefault>{{ status }}</p>
+</div>
