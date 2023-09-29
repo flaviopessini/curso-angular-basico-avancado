@@ -1,0 +1,13 @@
+{
+  "name": "fake-server",
+  "version": "1.0.0",
+  "description": "Fake json server for test",
+  "scripts": {
+    "start": "npx json-server --watch db.json"
+  },
+  "author": "Flávio",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
