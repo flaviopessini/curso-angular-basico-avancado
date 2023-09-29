@@ -10,6 +10,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { DatabindingComponent } from './databinding/databinding.component';
 import { DiretivasEstruturaisComponent } from './diretivas-estruturais/diretivas-estruturais.component';
 import { DiretivasAtributosComponent } from './diretivas-atributos/diretivas-atributos.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, TopbarComponent, DatabindingComponent, DiretivasEstruturaisComponent, DiretivasAtributosComponent],
@@ -20,6 +21,7 @@ import { DiretivasAtributosComponent } from './diretivas-atributos/diretivas-atr
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
