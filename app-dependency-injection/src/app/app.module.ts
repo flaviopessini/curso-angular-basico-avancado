@@ -11,6 +11,7 @@ import { DatabindingComponent } from './databinding/databinding.component';
 import { DiretivasEstruturaisComponent } from './diretivas-estruturais/diretivas-estruturais.component';
 import { DiretivasAtributosComponent } from './diretivas-atributos/diretivas-atributos.component';
 import { SharedModule } from './shared/shared.module';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     DatabindingComponent,
     DiretivasEstruturaisComponent,
     DiretivasAtributosComponent,
+    FormsComponent,
   ],
   imports: [
     BrowserModule,
