@@ -8,20 +8,41 @@ import { FoodListService } from 'src/app/services/food-list-service.service';
   styleUrls: ['./food-list.component.scss'],
 })
 export class FoodListComponent implements OnInit {
-  foodList: FoodList | any;
+  foodList: Array<FoodList> = [];
 
-  constructor(private foodServiceService: FoodListService) {}
+  constructor(private foodListService: FoodListService) {}
 
   ngOnInit(): void {
-    this.foodServiceService.getList().subscribe(
+    this.foodListService.getList().subscribe(
       (res) => {
         this.foodList = res;
       },
       (err) => alert(`Erro: ${err}`)
     );
-    this.foodServiceService.emitEvent.subscribe(
-      (res) => alert(`Você adicionou ${res}`),
+    this.foodListService.emitEvent.subscribe(
+      (res) => {
+        alert(`Você adicionou ${res.nome}`);
+        this.foodList.push(res);
+      },
       (err) => alert(`Erro: ${err}`)
+    );
+  }
+
+  foodListDelete(id: number) {
+    if (confirm(`Deseja remover o item?`)) {
+      this.foodListService.foodListDelete(id).subscribe(
+        (res) => {
+          this.foodList = this.foodList.filter((item) => id !== item.id);
+        },
+        (err) => err
+      );
+    }
+  }
+
+  foodListEdit(value: string, id: number) {
+    this.foodListService.foodListEdit(id, value).subscribe(
+      (res) => res,
+      (err) => err
     );
   }
 }

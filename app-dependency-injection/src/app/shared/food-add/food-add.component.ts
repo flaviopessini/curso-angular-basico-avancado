@@ -9,7 +9,12 @@ import { FoodListService } from 'src/app/services/food-list-service.service';
 export class FoodAddComponent {
   constructor(private foodListService: FoodListService) {}
 
-  listAddItem(value: string): number {
-    return this.foodListService.foodListAdd(value);
+  listAddItem(value: string) {
+    return this.foodListService.foodListAdd(value).subscribe(
+      (res) => {
+        this.foodListService.foodListAlert(res);
+      },
+      (err) => err
+    );
   }
 }
