@@ -1,7 +1,20 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
   <div>
     <label for="nome">Nome:</label>
-    <input type="text" name="nome" ngModel />
+    <input
+      type="text"
+      name="nome"
+      #nome="ngModel"
+      [ngModel]="nome.value"
+      ngModel
+      required
+    />
+    <span *ngIf="!nome.valid && nome.dirty && nome.touched">Invalid</span>
+    <br />
+    <br />
+    {{ nome.valid }}
+    {{ nome.dirty }}
+    {{ nome.touched }}
   </div>
   <div style="display: inline-flex; margin-top: 10px">
     <label
@@ -34,9 +47,12 @@
     <select name="comidas" ngModel>
       <option value="">Selecione</option>
       <option *ngFor="let item of listaComidas" [ngValue]="item">
-        {{ item.comida }} -- {{ item.valor | currency: 'BRL' }}
+        {{ item.comida }} -- {{ item.valor | currency : "BRL" }}
       </option>
     </select>
+  </div>
+  <div style="margin-top: 10px;">
+    <button type="submit" [disabled]="form.invalid">Enviar dados</button>
   </div>
 </form>
 
