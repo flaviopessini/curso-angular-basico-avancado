@@ -1,0 +1,41 @@
+<h1>Reactive Forms</h1>
+<hr />
+<form [formGroup]="cadastroForm" (ngSubmit)="submitForm()">
+  <div>
+    <input type="text" formControlName="firstName" placeholder="Nome" />
+    <span
+      *ngIf="
+        cadastroForm.get('firstName')?.errors &&
+        (cadastroForm.get('firstName')?.touched ||
+          cadastroForm.get('firstName')?.dirty)
+      "
+      >Informe o nome</span
+    >
+  </div>
+  <div>
+    <input type="text" formControlName="lastName" placeholder="Sobrenome" />
+    <span
+      *ngIf="
+        cadastroForm.get('lastName')?.errors &&
+        (cadastroForm.get('lastName')?.touched ||
+          cadastroForm.get('lastName')?.dirty)
+      "
+      >Sobrenome deve ter no mínimo
+      {{
+        cadastroForm.get("lastName")?.errors?.['minlength']?.requiredLength
+      }}</span
+    >
+  </div>
+  <div>
+    <input type="email" formControlName="email" placeholder="E-mail" />
+    <span
+      *ngIf="
+        cadastroForm.get('email')?.errors &&
+        (cadastroForm.get('email')?.touched || cadastroForm.get('email')?.dirty)
+      "
+    >
+      E-mail inválido
+    </span>
+  </div>
+  <button type="submit" [disabled]="cadastroForm.invalid">Enviar</button>
+</form>
