@@ -7,6 +7,7 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
   styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
+  isError: boolean = false;
   pokemons: any;
   private setPokemons: any;
 
@@ -18,7 +19,9 @@ export class PokeListComponent implements OnInit {
         this.setPokemons = res.results;
         this.pokemons = this.setPokemons;
       },
-      (err) => err
+      (err) => {
+        this.isError = true;
+      }
     );
   }
 

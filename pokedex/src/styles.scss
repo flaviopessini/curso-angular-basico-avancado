@@ -1,13 +1,14 @@
-@import './reset.scss';
-@import './variables.scss';
-@import './rem-calc.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./rem-calc.scss";
+@import "./animations.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
 
 /* You can add global styles to this file, and also import other style files */
 
 html {
   background-color: var(--primary-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--branco);
 }
 
@@ -21,4 +22,25 @@ main {
 input {
   outline: none;
   font-weight: 100;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: rem-calc(20) 0;
+  border-radius: rem-calc(10);
+  text-decoration: none;
+  font-weight: 700;
+
+  &__primary {
+    color: var(--branco);
+    background-color: var(--primary-color);
+  }
+
+  &__secondary {
+    color: var(--branco);
+    background-color: var(--secondary-color);
+  }
 }
