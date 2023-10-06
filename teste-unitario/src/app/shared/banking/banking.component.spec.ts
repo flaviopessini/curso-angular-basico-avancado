@@ -55,4 +55,12 @@ describe('BankingComponent', () => {
     expect(component.getCateira).toEqual(10);
   });
 
+  it(`(I) setDepositar(): transferir carteira para poupanca`, () => {
+    let el = fixture.debugElement.nativeElement;
+    el.querySelector('#input-depositar').value = '10';
+    el.querySelector('#depositar').click();
+    fixture.detectChanges();
+    expect(component.getPoupanca).toEqual(60);
+    expect(component.getCateira).toEqual(0);
+  });
 });
