@@ -14,6 +14,8 @@ export class SigninComponent {
     password: ['', [Validators.required]],
   });
 
+  msgError: string = '';
+
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   submitForm(): void {
@@ -25,7 +27,7 @@ export class SigninComponent {
         })
         .subscribe({
           next: (res) => res,
-          error: (e) => e,
+          error: (e) => (this.msgError = e),
         });
     }
   }
