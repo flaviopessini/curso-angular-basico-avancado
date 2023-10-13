@@ -1,0 +1,22 @@
+<p>Nome: {{ nome() }}</p>
+<p>Sobrenome: {{ sobrenome() }}</p>
+<p>Nome completo: {{ nomeCompleto() }}</p>
+<p><button type="button" (click)="updateNome2()">Atualiza nome</button></p>
+
+<hr />
+
+<p><button type="button" (click)="updateArray()">Update array</button></p>
+<ul>
+  <li *ngFor="let item of array()">{{ item }}</li>
+</ul>
+
+<hr />
+
+<p>{{ updateService.comida() }}</p>
+
+<app-novo-item></app-novo-item>
+<button type="button" (click)="updateService.updateComida('Lazanha')">
+  Update comida Lazanha
+</button>
+
+<router-outlet></router-outlet>
